@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: -apple-system, "Segoe UI", sans-serif;
+      background: #0F172A; color: #F1F5F9; width: 220px; padding: 16px;
+    }
+    h2 { font-size: 15px; margin: 0 0 8px; }
+    p { font-size: 12px; color: #94A3B8; margin: 0 0 12px; }
+    button {
+      width: 100%; background: #3B82F6; color: white; border: none;
+      border-radius: 8px; padding: 8px; font-size: 13px; cursor: pointer;
+    }
+    #state { font-size: 12px; margin-bottom: 10px; }
+    .on { color: #22C55E; } .off { color: #EF4444; }
+  </style>
+</head>
+<body>
+  <h2>🔒 FocusGuardian</h2>
+  <p>Scans page content live and closes blocked tabs.</p>
+  <div id="state">Status: <span id="stateText">…</span></div>
+  <button id="openOptions">Manage keywords</button>
+  <script src="popup.js"></script>
+</body>
+</html>
