@@ -1,1 +1,59 @@
+# Builds FocusGuardian.exe AND the FocusGuardianSetup.exe installer
+# automatically on a real Windows machine in GitHub's cloud — no need to
+# have Python, PyInstaller, or Inno Setup installed on your own PC.
+#
+# HOW TO USE:
+#   1. Create a free GitHub account if you don't have one: github.com
+#   2. Create a new repository and upload this whole FocusGuardian folder
+#      to it (drag-and-drop works fine on github.com, or use GitHub Desktop).
+#   3. Go to the "Actions" tab of your repo — this workflow runs
+#      automatically. Wait a couple of minutes for the green checkmark.
+#   4. Click into the finished run, scroll to "Artifacts", and download
+#      "FocusGuardian-installer" — that's your FocusGuardianSetup.exe.
+name: Build FocusGuardian
 
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build FocusGuardian.exe
+        run: |
+          pyinstaller --noconfirm --onefile --windowed --noupx --name FocusGuardian `
+            --icon=icon.ico `
+            --collect-all customtkinter `
+            --collect-all plyer `
+            --collect-all pystray `
+            main.py
+
+      - name: Install Inno Setup
+        run: choco install innosetup -y
+
+      - name: Build installer
+        run: |
+          & "C:\Program Files (x86)\Inno Setup 6\iscc.exe" FocusGuardian.iss
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FocusGuardian-installer
+          path: installer_output\FocusGuardianSetup.exe
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FocusGuardian-exe-only
+          path: dist\FocusGuardian.exe
