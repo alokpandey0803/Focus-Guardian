@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# Build artifacts (rebuild with build_exe.bat — don't commit these)
+build/
+dist/
+installer_output/
+*.spec.bak
+
+# Local user data — never commit your own stats/blocklists
+config.json
+stats.json
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
