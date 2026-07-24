@@ -36,6 +36,7 @@ jobs:
         run: |
           pyinstaller --noconfirm --onefile --windowed --noupx --name FocusGuardian `
             --icon=icon.ico `
+            --version-file=version_info.txt `
             --collect-all customtkinter `
             --collect-all plyer `
             --collect-all pystray `
