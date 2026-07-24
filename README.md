@@ -1,5 +1,5 @@
 # 🔒 FocusGuardian
-
+### 📥 [Download FocusGuardian](https://github.com/alokpandey0803/Focus-Guardian/releases/latest)
 A Windows focus/distraction-blocker app — websites, apps, and keywords, plus a
 Pomodoro-style timer and a strict "Lock-In Mode" for when you really can't be
 trusted with an unlock button.
