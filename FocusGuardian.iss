@@ -26,6 +26,8 @@
 AppId={{8F2C6B8E-6B2E-4E9A-9E7B-3F3B7D6C9E10}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
+AppPublisher=Alok Pandey
+AppPublisherURL=https://github.com/alokpandey0803
 DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes

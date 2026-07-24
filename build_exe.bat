@@ -21,8 +21,11 @@ REM               you actually exit it (via the in-app dialog or tray menu).
 REM --noupx     : skips UPX compression, which lowers the odds of an
 REM               antivirus false-positive on the packed binary.
 REM --icon      : gives it a real icon instead of the default Python one.
+REM --version-file: embeds publisher/product metadata (shows up in the
+REM               exe's file Properties > Details tab).
 pyinstaller --noconfirm --onefile --windowed --noupx --name FocusGuardian ^
     --icon=icon.ico ^
+    --version-file=version_info.txt ^
     --collect-all customtkinter ^
     --collect-all plyer ^
     --collect-all pystray ^
